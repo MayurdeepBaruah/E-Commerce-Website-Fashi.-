@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %}Blog Details{% endblock title %}
+{% block body %}
+    {% include 'retailer_navbar.html' %}
+    <div class="container pt-5">
+        <h1 class="text-center">{{blog_data1[2]}}</h1>
+        <div class="row">
+            <div class="col">
+                <p class="text-warning text-end">{{blog_data1[3]}}</p>
+            </div>
+            <div class="col">
+                <p class="text-dark text-start"> - {{blog_data1[4]}}</p>
+            </div>
+        </div>
+        <img src="{{ url_for('static', filename='./Images/'+ blog_data1[1])}}" class="blog_img"><br>
+        <p class="blog text-start">{{blog_data1[5]}}</p>
+        <h5 class='pt-3'>{{blog_data1[6]}}</h5>
+        <div class="owl-carousel owl-theme mt-5">
+            {% for i in blog_data2 %}
+                <div class="col">
+                    <a href="{{url_for('blog_detail_page', id=i[0])}}"><img src="{{url_for('static', filename='./Images/'+i[1])}}" alt="{{i[1]}}"></a>
+                </div>
+            {% endfor %}
+        </div>
+        <p class="text-center text-secondary pt-5">{{blog_data1[5]}}</p>
+        <div class="row pt-5 text-end">
+            <div class="col-4 pe-5">
+                <div class="row">
+                    <div class="col-1">
+                        <i class="fa-solid fa-tags fa-lg" style="color: #ffae00;"></i>
+                    </div>
+                    {% for i in data12 %}
+                        <div class="col-2">
+                            <p>{{i.title}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-4 tags">
+                <div class="row">
+                    <div class="col-6">
+                        <p>Share :</p>
+                    </div>
+                    <div class="col">
+                        <a href="#"><i class="fa-brands fa-facebook-f fa-lg" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="#"><i class="fa-brands fa-twitter fa-lg" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="#"><i class="fa-brands fa-google-plus-g fa-lg" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="#"><i class="fa-brands fa-instagram fa-lg" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="col">
+                        <a href="#"><i class="fa-brands fa-youtube fa-lg" style="color: #000000;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col pt-5">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="#"><i class="fa-solid fa-arrow-left fa-lg pe-4" style="color: #b3b3b3;"></i></a>
+                        <a href="#"><img src="{{url_for('static', filename='./Images/44.webp')}}"></a>
+                    </div>
+                    <div class="col">
+                        <p class="text-start"><a href="#" class="text-decoration-none text-secondary">Previous Post:</a></p>
+                        <h4 class="text-start"><a href="#" class="text-decoration-none text-dark">The Personality Trait That Makes People Happier</a></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col pt-5">
+                <div class="row ">
+                    <div class="col ">
+                        <p class="text-end "><a href="#" class="text-decoration-none text-secondary">Next Post:</a></p>
+                        <h4 class="text-end"><a href="#" class="text-decoration-none text-dark">The Personality Trait That Makes People Happier</a></h4>
+                    </div>
+                    <div class="col-4">
+                        <a href="#"><img src="{{url_for('static', filename='./Images/45.webp')}}"></a>
+                        <a href="#"><i class="fa-solid fa-arrow-right fa-lg ps-4" style="color: #b3b3b3;"></i></a>
+                    </div>
+                </div>            
+            </div>
+        </div>   
+        <div class="row pt-5 me-5">
+            <div class="col text-end pt-5">
+                <a href="#"><img src="{{url_for('static', filename='./Images/46.webp')}}"></a>
+            </div>
+            <div class="col-8 pt-5">
+                <h5><a href="#" class="text-decoration-none text-dark text-start">Shane Lynch</a></h5>
+                <p class="text-secondary">Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum bore <br> et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud amodo</p>
+            </div>
+        </div>
+        <h4 class="pt-5 pb-5">Leave A Comment</h4>
+        <form class="row g-3">
+            <div class="col-md-6">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Name">
+            </div>
+            <div class="col-md-6">
+              <input type="password" class="form-control" id="inputPassword4" placeholder="Email">
+            </div>
+            <div class="col-12">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Messages"></textarea>
+            </div>
+            <div class="col-12 pt-5">
+                <button type="submit" class="btn btn-warning">SEND MESSSAGE</button>
+            </div>
+        </form>
+    </div>
+    {%include 'retailer_footer.html'%}
+{% endblock body %}

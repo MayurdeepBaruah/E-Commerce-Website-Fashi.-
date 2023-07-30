@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Product Details{% endblock title %}
+{% block body %}
+    {% include 'retailer_navbar.html' %}
+    <div class="container">
+        <p class="pt-2"><i class="fa-solid fa-house fa-sm pt-2" style="color: #000000;"></i> HOME > SHOP > PRODUCT DETAILS</p>
+    </div>
+    <div class="container">
+        <div class="row">
+                <div class="col-4">
+                    <img src="{{url_for('static', filename='./Images/'+ i[7])}}" alt="{{i[7]}}" style="width: 400px; height: 500px;">
+                </div>
+                <div class="col">
+                    <h3 class="pb-3">{{i[1]}}</h3>
+                    <h4>₹{{i[2]}}</h4><br><br>
+                    <p class="pb-3">
+                        {{i[4]}}
+                    </p>
+                    <button data-id="{{i[0]}}" type="button" class="btn btn-warning add_cart">Add to Cart</button>
+                    <button type="button" class="btn btn-dark" id="buy_product">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-5 pb-5">
+            <p class="mx-auto">
+                <pre class="text-break">{{i[5]}}</pre>
+            </p>
+            <h1 class="pb-5 pt-5">RELATED PRODUCTS</h1>
+            <div class="row">
+                {% for i in cats %}
+                <div class="col">
+                    <a href="{{url_for('prod_detail',id=i[0])}}" class="text-decoration-none text-dark">
+                        <div class="card" style="width: 16rem;">
+                            <img src="{{url_for('static', filename='./Images/'+i[7])}}" class="card-img-top img-fluid" alt="{{i[7]}}" style="height: 200px;">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-evenly">
+                                    <div class="col">
+                                        <h6 class="">{{i[8]}}</h6>
+                                    </div>
+                                        <h4 class="card-text">{{i[1]}}</h4>
+                                    <div class="col">
+                                        <h5 class="text-warning text-end">₹{{i[2]}}</h5>
+                                    </div>
+                                </div>
+                                <div class="d-grid gap-2 mt-2">
+                                    <a class="btn btn-warning card-btn " id="add_cart">Add to Cart</a>
+                                  </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% include 'retailer_footer.html' %}
+{% endblock body %}
+{% block script %}<script src="{{url_for('static', filename= 'js/cart.js')}}"></script>{% endblock script %}

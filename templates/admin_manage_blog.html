@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Admin Manage Blog{% endblock title %}
+{% block body %}
+    {% include 'admin_navbar.html' %}
+    <div class="container-fluid">
+        <div class="row align-items-start">
+          <div class="col-2">
+            {% include 'admin_menu.html' %}
+          </div>
+            <div class="col">
+              <div class='row'>
+                <div class='container bg-dark'>
+                  <div class='col'>
+                      <h1 class='text-start text-white'>Blog Management</h1>
+                  </div>
+                    <div class='col'>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Blog-Modal">
+                          Manage Blogs
+                      </button>
+                      <!--Modal -->
+                      <div class="modal fade" id="Blog-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Manage Blogs</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                            <div class="modal-body">
+                              <form>
+                                  
+                                  <div class="mb-3">
+                                    <div class="input-group mb-3">
+                                      <label class="input-group-text" for='blog_img'>Upload</label>
+                                      <input type="hidden" class="form-control" id="blog_id" placeholder="Enter blogs_id" name="blogs_id">
+                                      <input type="file" class="form-control" id='blog_img' name='blog_img'>
+                                    </div>
+                                  </div>
+                                <div class="mb-3">
+                                  <label for='blog_title' class="form-label">Blog Title</label>
+                                  <input type="text" class="form-control" id='blog_title' placeholder="Enter Blog Title" name='blog_title'>
+                                </div>
+                                <div class="mb-3">
+                                    <label for='blog_cat' class="form-label">Blog Category</label>
+                                    <input type="text" class="form-control" id='blog_cat' placeholder="Enter Blog Category" name='blog_cat'>
+                                </div>
+                                <div class="mb-3">
+                                    <label for='blog_desp' class="form-label">Blog Description</label>
+                                    <textarea class="form-control" id='blog_desp' placeholder="Enter Blog Description" name='blog_desp' rows='10'></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for='blog_desp1' class="form-label">Blog Miscellaneous Description</label>
+                                    <textarea class="form-control" id='blog_desp1' placeholder="Enter Blog Miscellaneous Description" name='blog_desp1' rows='10'></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary" id='blog_add_btn'>Save changes</button>
+                                  <button type="button" class="btn btn-primary" id='blog_upd_btn'>Update changes</button>
+                                </div>
+                              </form>
+                            </div>
+                        </div>  
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      <div class='container'>
+        <table class='table' id='blog_disp_data'>
+        </table>
+      </div>
+{% endblock body %}
+{% block script %}<script src="{{url_for('static', filename='js/blog.js')}}"></script>{% endblock script %}

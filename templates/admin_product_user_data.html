@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Manage_Product_User_Data{% endblock title %}
+{% block body %}
+{% include 'admin_navbar.html' %}
+<div class="container-fluid">
+    <div class="row align-items-start">
+      <div class="col-2">
+        {% include 'admin_menu.html' %}
+      </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table" id="u_disp_data">
+    </table>
+</div>
+{% endblock body %}
+{% block script %}<script src="{{url_for('static', filename= 'js/user.js')}}"></script>{% endblock script %}

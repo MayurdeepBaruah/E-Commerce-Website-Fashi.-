@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Shop{% endblock title %}
+{% block body %}
+    {% include 'retailer_navbar.html' %}
+    <div class="container">
+            <p class="pt-2"><i class="fa-solid fa-house fa-sm pt-2" style="color: #000000;"></i> HOME > SHOP</p>
+    </div>
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-3">
+                <h4>Categories</h4><br>
+                <form method="post" action="{{url_for('shop_page')}}" id="flt_cat">
+                    {% for i in cat %}
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value="{{i[0]}}" id="{{i[0]}}" name="pcat">
+                        <label class="form-check-label" for="pcat">
+                            {{i[1]}}
+                        </label>
+                    </div>
+                    {% endfor %}
+                        <input type="button" class="btn btn-warning mt-3" id="prod-flt" value="FILTER"></button><br><br><br>
+                    </form>
+                </div>
+            <div class="col-9">
+                <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3" id="disp_flt">
+                </div>
+            </div>
+            </div>
+        </div>
+    {% include 'retailer_footer.html' %}
+{% endblock body %}
+{% block script %}<script src="{{url_for('static', filename= 'js/cart.js')}}"></script>{% endblock script %}

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block title %}Admin_Product_Manage{% endblock title %}
+{% block body %}
+  {% include 'admin_navbar.html' %}
+    <div class="container-fluid">
+      <div class="row align-items-start">
+          <div class="col-2">
+            {% include 'admin_menu.html' %}
+          </div>
+          <div class="col">
+            <div class='row'>
+              <div class='container bg-dark'>
+                <div class='col'>
+                  <h1 class='text-start text-white'>Product Management</h1>
+                </div>
+                <div class='col'>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#prod_modal">
+                  Manage Products
+                  </button>
+                  <!-- Modal -->
+                    <div class="modal fade" id="prod_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Manage Products</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                            <div class="modal-body">
+                              <form enctype="multipart/form-data">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="mb-3">
+                                      <label for='p_name' class="form-label">Product Name</label>
+                                      <input type="text" class="form-control" id='p_name' placeholder="Enter Product Name" name='p_name'>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="mb-3">
+                                      <label for='p_price' class="form-label">Product Price</label>
+                                      <input type="number" class="form-control" id='p_price' placeholder="Enter Product Price" name='p_price'>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="mb-3">
+                                        <label for='p_cat' class="form-label">Product Category</label>
+                                        <select name="p_cat" id="p_cat" class='form-select'>
+                                          {% for c in cat %}
+                                          <option value="{{c[0]}}">{{c[1]}}</option>
+                                          {% endfor %}
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="mb-3">
+                                        <label for='p_img' class="form-label">Product_Images</label>
+                                          <div class="input-group mb-3">
+                                            <label class="input-group-text" for='p_img'>Upload</label>
+                                            <input type="file" class="form-control" id='p_img' name='p_img' multiple="true" autocomplete="off">
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                <div class="mb-3">
+                                  <label for='p_srt_desp' class="form-label">Product_Short_Desp</label>
+                                  <textarea type="text" class="form-control" id='p_srt_desp' placeholder="Enter Product Short Desp" name='p_srt_desp' rows="5"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                  <label for='p_lng_desp' class="form-label">Product_Long_Desp</label>
+                                  <textarea type="text" class="form-control" id='p_lng_desp' placeholder="Enter Product Long Desp" name='p_lng_desp' rows="10"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary" id='p_add_btn'>Save changes</button>
+                                  <button type="button" class="btn btn-primary" id='p_upd_btn'>Update changes</button>
+                                </div>
+                              </form>
+                      </div>
+                    </div>  
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class='container'>
+      <table class='table' id='p_disp_data'>
+      </table>
+    </div>
+{% endblock body %}
+{% block script %}<script src="{{url_for('static', filename= 'js/products.js')}}"></script>{% endblock script %}
