@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock title %}
+{% block body %}
+    {% include 'retailer_navbar.html' %}
+    <div class="container">
+        <p class="pt-2"><i class="fa-solid fa-house fa-sm pt-2" style="color: #000000;"></i> HOME > CONTACT</p>
+    </div>
+    <div class="container pt-5">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d59528.35520999477!2d72.82360320000001!3d21.1714048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1688201755542!5m2!1sen!2sin" width="1300px" height="610px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+    </div>
+    <div class="container pt-5">
+        <div class="row">
+          <div class="col">
+            <h3 class="pb-3">Contacts Us</h3>
+            <p>Contrary to popular belief, Lorem Ipsum is simply random text. It has roots in a piece of classical Latin literature from 45 BC, maki years old.</p>
+            <div class="row">
+                <div class="card mb-3" style="max-width: 450px;">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <i class="fa-solid fa-location-dot fa-2xl pt-5 ps-5" style="color: #c2c2c2;"></i>
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <p class="card-text text-secondary">Address:</p>
+                            <h5 class="card-title">60-49 Road 11378 New York</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card mb-3" style="max-width: 450px;">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <i class="fa-solid fa-mobile-screen fa-2xl pt-5 ps-5" style="color: #c2c2c2;"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                              <p class="card-text text-secondary">Phone:</p>
+                              <h5 class="card-title">+65 11.188.888</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card mb-3" style="max-width: 450px;">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <i class="fa-regular fa-envelope fa-2xl pt-5 ps-5" style="color: #c2c2c2;"></i>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                              <p class="card-text text-secondary">Email:</p>
+                              <h5 class="card-title">hellocolorlib@gmail.com</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col">
+            <h3 class="pb-3">Leave A Comment</h3> 
+            <p class="text-secondary pb-5">Our staff will call back later and answer your questions.</p>
+            <form class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" id="inputEmail4" placeholder="Your name">
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" id="inputPassword4" placeholder="Your email">
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" id="inputAddress" placeholder="Your message" row="100"></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-warning">SEND MESSAGE</button>
+                </div>
+            </form>   
+        </div>
+      </div>
+    </div>    
+    {% include 'retailer_footer.html' %}
+{% endblock body %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% block body %}
+    {% include 'retailer_navbar.html' %}
+    <div class="container">
+        <p class="pt-2"><i class="fa-solid fa-house fa-sm pt-2" style="color: #000000;"></i> HOME > LOGIN</p>
+    </div>
+    <div class="container align-items-center">
+        <h3 class="text-center pb-5">Login</h3>
+        <form class=" g-3 needs-validation form" method="POST" action={{url_for('login_page')}}>
+
+
+{% with msg = get_flashed_messages() %}
+  {% if msg %}
+    {% for  m in msg %}
+      <div class="col-6 alert alert-danger" role="alert">
+          {{m}}
+        </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+            <div class="col-md-6">
+              <label for="login_user" class="form-label pb-3">Username or email address *</label>
+              <input type="email" class="form-control" id="login_user" name="login_user" required>
+            </div>
+            <div class="col-md-6">
+                <label for="login_password" class="form-label pt-3 pb-3">Password *</label>
+                <input type="password" class="form-control" id="login_password" name="login_password" required>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label text-secondary" for="flexCheckDefault">
+                          Save Password
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="#" class="text-secondary text-decoration-none">Forget your Password</a>
+                </div>
+            </div>
+            <div class="col-md-4 pt-5">
+                <button type="submit" class="btn btn-warning form3">Login</button>
+            </div>
+            <div class="col-md-4 pt-5 form2">
+                <a href="{{url_for('register_page')}}" class="text-dark">OR CREATE AN ACCOUNT</a>
+            </div>
+        </form>
+    </div>
+    {% include 'retailer_footer.html' %}
+{% endblock body %}

@@ -1,0 +1,122 @@
+.bg
+{
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.fa-regular
+{
+    padding-left: 100px;
+}
+.fa-cart-shopping
+{
+    padding-left: 10px;
+}
+.category
+{
+    padding-top: 85px;
+}
+.w_cat
+{
+    padding-top: 270px;
+}
+.navs
+{
+    padding-left: 350px;
+}
+.cards
+{
+    height: 200px;
+}
+.deal
+{
+    background-image: url('../Images/25.webp');
+    height: 100%;
+    width: 100%;
+    padding-bottom: 50px;
+}
+.deal1
+{
+    padding-top: 150px;
+    
+}
+.deal3
+{
+    padding-left: 200px;
+    padding-bottom: 20px;
+}
+.blog::first-letter
+{
+    font-size: 60px;
+    font-size: 6rem;
+    height:4rem;
+    line-height: 40px;
+    line-height: 4rem;
+    text-transform: uppercase;
+}
+.blog_img
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+.tags
+{
+    margin-left: 430px;
+}
+.timer
+{
+    margin-right: 1000px;
+}
+.timer1
+{
+    margin-left: 40px;
+}
+.timer2
+{
+    margin-left: 200px;
+    margin-top: 40px;
+}
+.contact
+{
+    border: 1px solid;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0) !important;
+}
+.form
+{
+    padding-left: 500px;
+}
+.form1
+{
+    padding-left: 100px;
+    padding-right: 98px;
+}
+.form2
+{
+    margin-left: 90px;
+}
+.form3
+{
+    padding-left: 165px;
+    padding-right: 163px;
+}
+.nav-btn:hover
+{
+    background-color: rgb(255, 204, 0) !important;
+    color: white !important;
+}
+.nav-btn1:hover
+{
+    color: rgb(255, 204, 0) !important;
+}
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #ffe600;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(255, 217, 0), rgba(37, 117, 252, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(255, 217, 0), rgb(255, 208, 0))
+    }

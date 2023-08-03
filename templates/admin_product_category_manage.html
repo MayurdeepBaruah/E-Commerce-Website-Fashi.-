@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Admin_Product_Category_Manage{% endblock title %}
+{% block body %}
+    {% include 'admin_navbar.html' %}
+        <div class="container-fluid">
+          <div class="row align-items-start">
+            <div class="col-2">
+              {% include 'admin_menu.html' %}
+            </div>
+              <div class="col">
+                <div class='row'>
+                  <div class='container bg-dark'>
+                    <div class='col'>
+                        <h1 class='text-start text-white'>Product Category Management</h1>
+                    </div>
+                      <div class='col'>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Cat-Modal">
+                            Manage Products Categories
+                        </button>
+                        <!--Modal -->
+                        <div class="modal fade" id="Cat-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Manage Products Categories</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                              <div class="modal-body">
+                                <form>
+                                  <div class="mb-3">
+                                    <label for='p_cat_name' class="form-label">Category_Name</label>
+                                    <input type="hidden" class="form-control" id="p_cat_id" placeholder="Enter product_id" name="p_cat_id">
+                                    <input type="text" class="form-control" id='p_cat_name' placeholder="Enter Category Name" name='p_cat_name'>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for='p_cat_desp' class="form-label">Category_Desp</label>
+                                    <textarea type="text" class="form-control" id='p_cat_desp' placeholder="Enter Category Description" name='p_cat_desp' rows="5"></textarea>
+                                  </div>
+                                  <div class="mb-3">
+                                    <div class="input-group mb-3">
+                                      <label class="input-group-text" for='p_cat_img'>Upload</label>
+                                      <input type="file" class="form-control" id='p_cat_img' name='p_cat_img'>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id='p_cat_add_btn'>Save changes</button>
+                                    <button type="button" class="btn btn-primary" id='p_cat_upd_btn'>Update changes</button>
+                                  </div>
+                                </form>
+                              </div>
+                          </div>  
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        <div class='container'>
+          <table class='table' id='p_cat_disp_data'>
+          </table>
+        </div>
+{% endblock body %}
+
+
+{% block script %}<script src="{{url_for('static', filename='js/category.js')}}"></script>{% endblock script %}

@@ -1,0 +1,275 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+{% include 'retailer_navbar.html' %}
+<div class="container-fluid bg">
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="dark">
+    <div class="carousel-indicators">
+      {% for i in data %}
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="{{i.id}}" class="active"
+        aria-label="Slide {{i.id+1}}" aria-current="true"></button>
+      {% endfor %}
+    </div>
+    <div class="carousel-inner">
+      {% for i in data %}
+      <div class="carousel-item {% if i.id==0 %}active{% endif %}" data-bs-interval="{{i.interval}}">
+        <img class="bd-placeholder-img" width="100%" height="100%"
+          src="{{url_for('static', filename='./Images/'+i.bg_img)}}"></img>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <p class="text-warning">{{i.bg_small}}</p>
+            <h1 class="opacity-75 text-dark">{{i.bg_large}}</h1>
+            <div class="col-5">
+              <p class="text-dark">{{i.bg_info}}</p>
+            </div>
+            <a href="{{url_for('shop_page')}}" class="btn btn-warning text-white text-center">{{i.bg_btn}}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="container pt-5">
+    <div class="container text-center">
+      <div class="row align-items-start">
+        {% for i in data1 %}
+        <div class="col">
+          <div class="card text-bg-dark">
+            <img src="{{url_for('static', filename='./Images/'+i.p_img)}}" class="card-img" alt="{{p_img}}">
+            <div class="card-img-overlay">
+              <h3 class="card-title text-center text-dark category">{{i.p_cat}}</h5>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class='container pt-5'>
+    <div class="row align-items-start">
+      <div class='col-3'>
+        <div class="card text-bg-dark">
+          <img src="{{url_for('static', filename='./Images/20.webp')}}" class="card-img" alt="{{20.webp}}"
+            height='600px'>
+          <div class="card-img-overlay">
+            <h1 class="card-title text-center w_cat">Women's</h1>
+            <h3 class='text-center'><a class="card-text text-white w_cat" href="{{url_for('shop_page')}}">Discover
+                More</a></h3>
+          </div>
+        </div>
+      </div>
+      <div class='col'>
+        <ul class="nav navs nav-underline">
+          {% for i in data2 %}
+          <li class="nav-item">
+            <h4><a class="nav-link {% if i.id==0 %}active{% endif %} text-secondary" aria-current="page"
+                href="#">{{i.link}}</a></h4>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="owl-carousel owl-theme ms-5 ps-5" style="width:918px;">
+          {% for i in prod_cat %}
+          <div class="col pt-5">
+            <a href="{{url_for('prod_detail',id=i[0])}}" class="text-decoration-none text-dark">
+              <div class="card" style="width: 16rem;">
+                <img src="{{url_for('static', filename='./Images/'+i[7])}}" class="card-img-top img-fluid"
+                  alt="{{i[7]}}" style="height: 200px;">
+                <div class="card-body">
+                  <div class="row d-flex justify-content-evenly">
+                    <div class="col">
+                      <h6 class="">{{i[8]}}</h6>
+                    </div>
+                    <h4 class="card-text">{{i[1]}}</h4>
+                    <div class="col">
+                      <h5 class="text-warning text-end">₹{{i[2]}}</h5>
+                    </div>
+                  </div>
+            </a>
+            <div class="d-grid gap-2 mt-2">
+              <button data-id="{{i[0]}}" type="button" class="btn btn-warning add_cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+<div class="container-fluid deal mt-5">
+  <div class="row">
+    <div class="col-6">
+      <h1 class='deal1 text-center'>Deal of the Week</h1>
+      <p class='deal2 text-center'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed <br>do ipsum dolor sit
+        amet, consectetur adipisicing elit</p>
+    </div>
+  </div>
+  <div class="row deal3">
+    <div class="col-1">
+      <h2 class="text-warning">$35.00 </h2>
+    </div>
+    <div class="col">
+      <h3 class='text-dark'> / Handbag</h3>
+    </div>
+  </div>
+  <div class="row timer1">
+    <div class="col-1">
+      <h1 class=" text-center" id="count_timer"></h1>
+      <p class=" text-center">DAYS</p>
+    </div>
+    <div class="col-1">
+      <h1 id="count_timer1" class=" text-center"></h1>
+      <p class=" text-center">HOURS</p>
+    </div>
+    <div class="col-1">
+      <h1 id="count_timer2" class=" text-center"></h1>
+      <p class=" text-center">MINUTES</p>
+    </div>
+    <div class="col-1">
+      <h1 id="count_timer3" class=" text-center timer"></h1>
+      <p class=" text-center timer">SECONDS</p>
+    </div>
+  </div>
+  <a href="#"><button class="btn btn-warning timer2">SHOP NOW</button></a>
+</div>
+<div class="container pt-5">
+  <div class="row">
+    <div class="col">
+      <ul class="nav navs nav-underline">
+        {% for i in data2 %}
+        <li class="nav-item">
+          <h4><a class="nav-link {% if i.id==0 %}active{% endif %} text-secondary" aria-current="page"
+              href="#">{{i.link}}</a></h4>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="owl-carousel owl-theme" style="width:918px;">
+          {% for i in prod_cat %}
+          <div class="col pt-5">
+            <a href="{{url_for('prod_detail',id=i[0])}}" class="text-decoration-none text-dark">
+              <div class="card" style="width: 16rem;">
+                <img src="{{url_for('static', filename='./Images/'+i[7])}}" class="card-img-top img-fluid"
+                  alt="{{i[7]}}" style="height: 200px;">
+                <div class="card-body">
+                  <div class="row d-flex justify-content-evenly">
+                    <div class="col">
+                      <h6 class="">{{i[8]}}</h6>
+                    </div>
+                    <h4 class="card-text">{{i[1]}}</h4>
+                    <div class="col">
+                      <h5 class="text-warning text-end">₹{{i[2]}}</h5>
+                    </div>
+                  </div>
+            </a>
+            <div class="d-grid gap-2 mt-2">
+              <button data-id="{{i[0]}}" type="button" class="btn btn-warning add_cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="card text-bg-dark">
+      <img src="{{url_for('static', filename='./Images/26.webp')}}" class="card-img" alt="{{26.webp}}" height='600px'>
+      <div class="card-img-overlay">
+        <h1 class="card-title text-center w_cat">Men's</h1>
+        <h3 class='text-center'><a class="card-text text-white w_cat" href="{{url_for('shop_page')}}">Discover More</a>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="container-fluid mt-5">
+  <h1 class="text-center">FROM THE BLOG</h1>
+  <div class="container pt-4">
+    <div class="owl-carousel owl-theme">
+      {% for i in blog_data %}
+      <div class="col">
+        <a href="{{url_for('blog_page')}}" class="text-decoration-none text-dark">
+          <div class="card text-bg-dark">
+            <img src="{{url_for('static', filename='./Images/'+ i[1])}}" class="card-img" alt="{{i[1]}}">
+          </div>
+          <div class="row align-items-start pt-4">
+            <div class="col-7 text-start">
+              <p><i class="fa-regular fa-calendar fa-sm" style="color: #ffdd00;"></i> {{i[4]}}</p>
+            </div>
+            <div class="col">
+              <p><i class="fa-regular fa-comment fa-sm" style="color: #ffdd00;"></i> 5</p>
+            </div>
+            <h2>{{i[2]}}</h2>
+            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="container text-center pt-5">
+  <div class="row align-items-start pt-5">
+    <div class="col">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <i class="fa-solid fa-truck fa-2xl pt-5" style="color: #ffbb00;"></i>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">FREE SHIPPING</h5>
+              <p class="card-text">For all order over $99</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <i class="fa-regular fa-clock fa-2xl pt-5" style="color: #ffd500;"></i>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">DELIVERY ON TIME</h5>
+              <p class="card-text">If good have prolems</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <i class="fa-solid fa-truck fa-2xl pt-5" style="color: #ffbb00;"></i>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">SECURE PAYMENT</h5>
+              <p class="card-text">100% secure payment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% include 'retailer_footer.html' %}
+{% endblock body %}
+{% block script %}
+<script src="{{url_for('static', filename= 'js/cart.js')}}"></script>{% endblock script %}
